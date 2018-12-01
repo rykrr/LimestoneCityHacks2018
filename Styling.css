@@ -1,0 +1,64 @@
+.searchDiv {
+	float: center;
+	background-color: black;
+	text-align: right;
+	height: 20%;
+	/* padding: 10px; */
+}
+
+.searchDiv p{
+	color: white;
+	text-align: left;
+	float: left;
+	font-size: 40px;
+	margin-left: 10px;
+	margin-top: 20px;
+	
+	/* font: */
+}
+
+.searchDiv input{
+	margin-top: 15px;
+	margin-right: 15px;
+	padding: 5px;
+	float: right;
+}	
+
+.searchDiv img {
+	margin-left: 18px;
+	float: left;
+	height: 10%;
+	width: 10%;
+	
+}
+
+.searchDiv button {
+	float: right;
+	margin-right: 18px;
+	margin-top: 16px;
+	height: 28px;
+}
+
+.tweets {
+	float: left;
+	text-align: left;	
+	margin-left: 20px;
+	border-bottom: solid;
+	width: 28%;
+	height: 50%;
+}
+
+.tweets ifram {
+	height: 20%;
+}
+
+.test {
+	display: block;
+	clear: both;
+}
+
+#map {	
+        height: 800px;  /* The height is 400 pixels */
+        width: 70%;  /* The width is the width of the web page */
+		float: left;
+       }
