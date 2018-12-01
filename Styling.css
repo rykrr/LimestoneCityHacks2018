@@ -1,15 +1,21 @@
-.searchBar {
+/*#searchBar {
 	overflow: hidden;
 	background-color: #e9e9e9;
-}
+}*/
 
-.searchBar input[type=text] {
-	float: right;
+#searchBar input[type=text] {
+	position: right;
 	padding: 6px;
 	border: none;
 	margin-top: 8px;
 	margin-right: 16px;
-	font-size: 17px;
+	font-size: 100px;
+}
+
+.header {
+	background-color: black;
+	padding: 10px;
+	text-align: right;
 }
 
 /*body{
