@@ -186,11 +186,15 @@ function initMap() {
             radius: 100000
           });
 } 
- 
- 
+  
+var xmlhttp = new XMLHttpRequest();
+var jsonTweet;
  function searched() {
 	var search = document.getElementById("searchField").value;
-	console.log(search);	
+	xmlhttp.open("GET", "http://10.217.143.21:6969/test/query/" + search, true);
+	xmlhttp.send();
+	console.log(xmlhttp);
+	jsonTweet = JSON.parse(xmlhttp.responseText);
  }
  
  function setTweetTexts(){
@@ -201,12 +205,15 @@ function initMap() {
 	//getNewTweet
  } 
  
- function getTweet() {
-	 
+ function coords(){
+	 var lat = (Math.random() * (68.3607 - 31.7619) + 31.7619).toFixed(4)*1;
+	 var longi = (Math.random() * (130.3208 - 71.2080) + 71.2080).toFixed(4)*-1;
+	 return [lat, longi];
 	 
  }
  
- 
- let timerID = setInterval(setTweetTexts, 3000);
-   
+ function getTweet() {
+	 
+	 
+ }   
    
