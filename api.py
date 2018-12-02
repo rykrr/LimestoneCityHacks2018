@@ -1,4 +1,5 @@
 from flask import Flask
+import flask
 import twi
 import wat
 import json
@@ -19,6 +20,7 @@ def analyze(data):
         output.append(tweet)
     return output
 
+
 @app.route('/callback', methods=['POST','GET'])
 def _callback():
     return ''
@@ -27,7 +29,10 @@ def _callback():
 @app.route('/test/query/<query>', methods=['GET'])
 def _test_query(query):
     try:
-        return open('query.json', 'r').read()
+        cache = open('cache/{}.json'.format(query), 'r').read()
+        out = flask.make_response(cache)
+        out.headers.add('Access-Control-Allow-Origin', '*')
+        return out
     except Exception as e:
         print(e.message)
         return '[]'
@@ -35,11 +40,17 @@ def _test_query(query):
 @app.route('/query/<query>', methods=['GET'])
 def _query(query):
     try:
-        data = json.loads(twi.search(token, query))
-        f = open('query.json', 'w')
-        dump = json.dumps(analyze(data))
-        f.write(json.dumps(dump))
-        return dump
+        data = json.loads(twi.search(token, '%23{}'.format(query)))
+        f = open('cache/{}.json'.format(query), 'w')
+        
+        result = analyze(data)
+        
+        cache = json.dumps(result)
+        f.write(cache)
+        
+        out = flask.make_response(cache)
+        out.headers.add('Access-Control-Allow-Origin', '*')
+        return out
     except Exception as e:
         print(e.message)
         return '[]'
