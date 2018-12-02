@@ -206,7 +206,7 @@ function searched() {
  function coords(){
 	 var lat = (Math.random() * (68.3607 - 31.7619) + 31.7619).toFixed(4)*1;
 	 var longi = (Math.random() * (130.3208 - 71.2080) + 71.2080).toFixed(4)*-1;
-	 return [lat, longi];
+	 return {lat, longi};
 	 
  }
  
