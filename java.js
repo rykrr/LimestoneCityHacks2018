@@ -190,7 +190,7 @@ function initMap() {
 var jsonTweet;
 function searched() {
     var search = document.getElementById("searchField").value;
-    $.get('http://localhost:6969/test/query/' + search, function(result) {
+    $.get('http://10.217.143.21:6969/test/query/' + search, function(result) {
         console.log(JSON.parse(result))
     })
 }
