@@ -3,7 +3,7 @@ import urllib
 import base64
 
 consumer_key = 'rDOI6D4qdYOfZVLIYCD717Sqp'
-consumer_secret = ''
+consumer_secret = 'TsTBkDNRh1HJXbURhEu4Qxy9tDywinIAStmhWuwXfA9SBsOyaV'
 
 ckey_url = urllib.parse.quote_plus(consumer_key)
 csec_url = urllib.parse.quote_plus(consumer_secret)
@@ -33,7 +33,7 @@ def invalidate(token):
 def search(token, query_string):
     headers = {'Authorization': 'Bearer {}'.format(token)}
     query = urllib.parse.quote_plus(query_string)
-    r = requests.get('https://api.twitter.com/1.1/search/tweets.json?l=en&q={}&count=100'.format(query), headers=headers)
+    r = requests.get('https://api.twitter.com/1.1/search/tweets.json?l=en&q={}&count=10'.format(query), headers=headers)
     
     if r.status_code == 200:
         return r.text
